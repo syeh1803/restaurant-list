@@ -14,7 +14,7 @@
 
 ### Installation
 
-1. Use cd to navigate to the directory where you would like to clone the repository
+1. Use ```cd``` to navigate to the directory where you would like to clone the repository
 
 2. Use command line below on your Terminal to start the clone
 ``` 
