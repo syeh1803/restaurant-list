@@ -41,7 +41,7 @@ npm run dev
 ![image](https://github.com/syeh1803/restaurant-list/blob/main/public/images/search-function.png)
 
 ## Tools
-► [Visual Studio Code](https://code.visualstudio.com/download) - IDE
+► [Visual Studio Code](https://code.visualstudio.com/download) - Code Editor
 
 ► [npm](https://www.npmjs.com/) - Package Manager
 
