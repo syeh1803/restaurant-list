@@ -34,6 +34,12 @@ npm run dev
 
 5. Press ```cmd + c ``` or ```ctrl + c``` to exit
 
+
+## Sneak Peek 
+![image](https://github.com/syeh1803/restaurant-list/blob/main/public/images/homepage.png)
+![image](https://github.com/syeh1803/restaurant-list/blob/main/public/images/detailed-info.png)
+![image](https://github.com/syeh1803/restaurant-list/blob/main/public/images/search-function.png)
+
 ## Tools
 ► [Visual Studio Code](https://code.visualstudio.com/download) - IDE
 
