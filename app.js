@@ -33,6 +33,9 @@ app.get("/search", (req, res) => {
   const restaurants = restaurantList.results.filter(
     (item) => item.name_en.toLowerCase().includes(keyword) || item.category.includes(keyword)
   );
+  if(!restaurants.length){
+    res.render('noresults', {restaurants: restaurants, keyword: keyword})
+  }
   res.render("index", { restaurants: restaurants });
 });
 
