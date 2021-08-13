@@ -4,7 +4,7 @@ const mongoose = require("mongoose"); // 載入mongoose
 const app = express();
 const port = 3000;
 const exphbs = require("express-handlebars");
-const restaurantList = require("./restaurant.json");
+const Restaurant = require("./models/restaurant");
 
 // 設定連線到mongoDB
 mongoose.connect("mongodb://localhost/restaurant", {
@@ -32,9 +32,10 @@ app.use(express.static("public"));
 
 // render all restaurants
 app.get("/", (req, res) => {
-  res.render("index", {
-    restaurants: restaurantList.results,
-  });
+  Restaurant.find()
+    .lean()
+    .then((restaurants) => res.render("index", { restaurants }))
+    .catch((error) => console.log(error))
 });
 
 // show restaurants info
