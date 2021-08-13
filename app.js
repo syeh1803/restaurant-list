@@ -5,6 +5,7 @@ const app = express();
 const port = 3000;
 const exphbs = require("express-handlebars");
 const Restaurant = require("./models/restaurant");
+const bodyParser = require("body-parser");
 
 // 設定連線到mongoDB
 mongoose.connect("mongodb://localhost/restaurant", {
@@ -29,21 +30,23 @@ app.set("view engine", "handlebars");
 
 // setting static files
 app.use(express.static("public"));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // render all restaurants
 app.get("/", (req, res) => {
-  Restaurant.find()
+  return Restaurant.find()
     .lean()
     .then((restaurants) => res.render("index", { restaurants }))
-    .catch((error) => console.log(error))
+    .catch((error) => console.log(error));
 });
 
 // show restaurants info
-app.get("/restaurants/:restaurant_id", (req, res) => {
-  const restaurant = restaurantList.results.find(
-    (restaurant) => restaurant.id.toString() === req.params.restaurant_id
-  );
-  res.render("show", { restaurant: restaurant });
+app.get("/restaurants/:id", (req, res) => {
+  const id = req.params.id
+  return Restaurant.findById(id)
+    .lean()
+    .then((restaurants) => res.render("show", { restaurants }))
+    .catch((error) => console.log(error));
 });
 
 // search function
