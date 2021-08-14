@@ -42,9 +42,11 @@ npm run dev
 
 
 ## Sneak Peek 
-![image](https://github.com/syeh1803/restaurant-list/blob/main/public/images/homepage.png)
+![image](https://github.com/syeh1803/restaurant-list/blob/main/public/images/updated-homepage.png)
 ![image](https://github.com/syeh1803/restaurant-list/blob/main/public/images/detailed-info.png)
 ![image](https://github.com/syeh1803/restaurant-list/blob/main/public/images/search-function.png)
+![image](https://github.com/syeh1803/restaurant-list/blob/main/public/images/create-page.png)
+![image](https://github.com/syeh1803/restaurant-list/blob/main/public/images/edit-page.png)
 
 ## Tools
 ► [Visual Studio Code](https://code.visualstudio.com/download) - Code Editor
