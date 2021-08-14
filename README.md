@@ -6,9 +6,15 @@
 
 ► Search for names or categories in the search bar
 
-► Click the images to read more information of the restaurants, eg: category, address, phone number, description 
+► Click the images or 'Detail' button to read more information of the restaurants, eg: category, address, phone number, description 
 
 ► The icon in the top left corner will navigate users back to the homepage
+
+► Click 'Create' button to add restaurants to the list
+
+► Press 'Edit' button for editing restaurants' information
+
+► Click 'Delete' button to remoeve restuarants from the list
 
 ## Getting Started
 
