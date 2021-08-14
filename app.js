@@ -127,16 +127,18 @@ app.post('/restaurants/:id/delete', (req, res) => {
 
 // search function
 app.get("/search", (req, res) => {
-  const keyword = req.query.keyword.toLowerCase();
-  const restaurants = restaurantList.results.filter(
-    (item) =>
-      item.name_en.toLowerCase().includes(keyword) ||
-      item.category.includes(keyword)
-  );
-  if (!restaurants.length) {
-    res.render("noresults", { restaurants: restaurants, keyword: keyword });
-  }
-  res.render("index", { restaurants: restaurants });
+  const keyword = req.query.keyword.trim().toLowerCase();
+  const keywordRegex = new RegExp(keyword, "i");
+  Restaurant.find({
+    $or: [
+      { category: { $regex: keywordRegex } },
+      { name: { $regex: keywordRegex } },
+    ],
+  })
+    .lean()
+    .then((restaurants) => {
+      res.render("index", { restaurants, keyword });
+    });
 });
 
 app.get("/search", (req, res) => {
