@@ -6,6 +6,7 @@ const port = 3000;
 const exphbs = require("express-handlebars");
 const Restaurant = require("./models/restaurant");
 const bodyParser = require("body-parser");
+const { findById } = require("./models/restaurant");
 
 // mongoose connection settings
 mongoose.connect("mongodb://localhost/restaurant", {
@@ -112,6 +113,15 @@ app.post("/restaurants/:id/edit", (req, res) => {
       return restaurants.save();
     })
     .then(() => res.redirect(`/restaurants/${id}`))
+    .catch((error) => console.log(error));
+});
+
+// delete function
+app.post("/restaurants/:id/delete", (req, res) => {
+  const id = req.params.id;
+  return Restaurant.findById(id)
+    .then((restaurants) => restaurants.remove())
+    .then(() => res.redirect("/"))
     .catch((error) => console.log(error));
 });
 
