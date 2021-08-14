@@ -19,16 +19,13 @@
             <button class="btn btn-major" type="submit" id="search-button"><i
                 class="fas fa-search"
               ></i></button>
+            <a href="./restaurants/new"><button type="button" class="btn btn-success ml-2" data-toggle="tooltip" data-placement="top" title="Tooltip on top">Create</button></a>
           </div>
         </div>
       </form>
+                  
     </div>
   </div>
-</div>
-
-{{!-- create button --}}
-<div class="d-flex justify-content-around pt-3">
-<a href="./restaurants/new"><button type="submit" class="btn btn-success">Create</button></a>
 </div>
 
 <!-- restaurant list -->
@@ -52,17 +49,16 @@
                   {{this.category}}
                 </div>
 
-                <span class="badge badge-pill badge-danger font-weight-normal">
+                <span class="badge badge-pill badge-danger font-weight-normal mr-3">
                   {{this.rating}}
                   <i class="fas fa-star fa-xs"></i>
                 </span>
-
+                    <a href="/restaurants/{{this._id}}/edit"><button class="btn btn-sm btn-info ml-4" type="submit" id="home-button">Edit</button></a>
+                    <a href="./restaurants/{{this._id}}"><button class="btn btn-sm btn-secondary" type="submit" id="home-button">Detail</button></a>
+                    <form action="./restaurants/{{this._id}}/delete" method="POST" style="display: inline;"><button type="submit" class="btn btn-sm btn-danger">Delete</button></form>
               </div>
             </div>
           </a>
-          <a href="./restaurants/{{this._id}}/edit">edit</a>
-          <a href="./restaurants/{{this._id}}">detail</a>
-          <form action="./restaurants/{{this._id}}/delete" method="POST" style="display: inline;"><button type="submit">delete</button></form>
         {{/each}}
       </div>
     </div>

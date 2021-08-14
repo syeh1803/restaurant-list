@@ -117,13 +117,13 @@ app.post("/restaurants/:id/edit", (req, res) => {
 });
 
 // delete function
-app.post("/restaurants/:id/delete", (req, res) => {
-  const id = req.params.id;
+app.post('/restaurants/:id/delete', (req, res) => {
+  const id = req.params.id
   return Restaurant.findById(id)
     .then((restaurants) => restaurants.remove())
-    .then(() => res.redirect("/"))
+    .then(() => res.redirect('/'))
     .catch((error) => console.log(error));
-});
+})
 
 // search function
 app.get("/search", (req, res) => {
@@ -137,6 +137,21 @@ app.get("/search", (req, res) => {
     res.render("noresults", { restaurants: restaurants, keyword: keyword });
   }
   res.render("index", { restaurants: restaurants });
+});
+
+app.get("/search", (req, res) => {
+  const keyword = req.query.keyword.trim().toLowerCase();
+  const keywordRegex = new RegExp(keyword, "i");
+  Restaurant.find({
+    $or: [
+      { category: { $regex: keywordRegex } },
+      { name: { $regex: keywordRegex } },
+    ],
+  })
+    .lean()
+    .then((restaurants) => {
+      res.render("index", { restaurants, keyword });
+    });
 });
 
 // start and listen
