@@ -1,25 +1,22 @@
 // require packages used in the project
 const express = require("express");
-const mongoose = require("mongoose"); // 載入mongoose
+const mongoose = require("mongoose");
 const app = express();
 const port = 3000;
 const exphbs = require("express-handlebars");
 const Restaurant = require("./models/restaurant");
 const bodyParser = require("body-parser");
 
-// 設定連線到mongoDB
+// mongoose connection settings
 mongoose.connect("mongodb://localhost/restaurant", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
 
-// 取得資料庫連線狀態
 const db = mongoose.connection;
-// 連線異常
 db.on("error", () => {
   console.log("mongodb error!");
 });
-// 連線成功
 db.once("open", () => {
   console.log("mongodb connected!");
 });
@@ -27,25 +24,56 @@ db.once("open", () => {
 // setting template engine
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
-
-// setting static files
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 
+// route settings //
+
 // render all restaurants
 app.get("/", (req, res) => {
-  return Restaurant.find()
+  Restaurant.find()
     .lean()
     .then((restaurants) => res.render("index", { restaurants }))
     .catch((error) => console.log(error));
 });
 
+// render new page
+app.get("/restaurants/new", (req, res) => {
+  res.render("new");
+});
+
 // show restaurants info
 app.get("/restaurants/:id", (req, res) => {
-  const id = req.params.id
+  const id = req.params.id;
   return Restaurant.findById(id)
     .lean()
     .then((restaurants) => res.render("show", { restaurants }))
+    .catch((error) => console.log(error));
+});
+
+// create function
+app.post("/restaurants", (req, res) => {
+  const name = req.body.name;
+  const name_en = req.body.name_en;
+  const category = req.body.category;
+  const image = req.body.image;
+  const location = req.body.location;
+  const phone = req.body.phone;
+  const google_map = req.body.google_map;
+  const rating = req.body.rating;
+  const description = req.body.description;
+  return Restaurant.create({
+    name,
+    name_en,
+    category,
+    image,
+    location,
+    phone,
+    google_map,
+    rating,
+    description,
+  })
+    .then(() => res.redirect("/"))
     .catch((error) => console.log(error));
 });
 
@@ -58,7 +86,7 @@ app.get("/search", (req, res) => {
       item.category.includes(keyword)
   );
   if (!restaurants.length) {
-    res.render("noresults", { restaurants: restaurants, keyword: keyword });
+    res.render("git", { restaurants: restaurants, keyword: keyword });
   }
   res.render("index", { restaurants: restaurants });
 });
