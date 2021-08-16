@@ -11,7 +11,6 @@
 
 ► The icon in the top left corner will navigate users back to the homepage
 
-=======
 ► Click the images or ```Detail``` button to read more information of the restaurants, eg: category, address, phone number, description 
 
 ► The icon in the top left corner will navigate users back to the homepage
@@ -22,7 +21,6 @@
 
 ► Click ```Delete``` button to remoeve restuarants from the list
 
->>>>>>> fae5c4fad5439d031dcc84dcfb811ed39ca43e7d
 ## Getting Started
 
 ### Installation
