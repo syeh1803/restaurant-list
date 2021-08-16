@@ -6,7 +6,6 @@ const port = 3000;
 const exphbs = require("express-handlebars");
 const Restaurant = require("./models/restaurant");
 const bodyParser = require("body-parser");
-const { findById } = require("./models/restaurant");
 
 // mongoose connection settings
 mongoose.connect("mongodb://localhost/restaurant", {
@@ -160,3 +159,4 @@ app.get("/search", (req, res) => {
 app.listen(port, () => {
   console.log(`Express is listening on localhost:${port}`);
 });
+
