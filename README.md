@@ -6,10 +6,23 @@
 
 ► Search for names or categories in the search bar
 
+<<<<<<< HEAD
 ► Click the images to read more information of the restaurants, eg: category, address, phone number, description 
 
 ► The icon in the top left corner will navigate users back to the homepage
 
+=======
+► Click the images or ```Detail``` button to read more information of the restaurants, eg: category, address, phone number, description 
+
+► The icon in the top left corner will navigate users back to the homepage
+
+► Click ```Create``` button to add restaurants to the list
+
+► Press ```Edit``` button for editing restaurants' information
+
+► Click ```Delete``` button to remoeve restuarants from the list
+
+>>>>>>> fae5c4fad5439d031dcc84dcfb811ed39ca43e7d
 ## Getting Started
 
 ### Installation
@@ -36,9 +49,11 @@ npm run dev
 
 
 ## Sneak Peek 
-![image](https://github.com/syeh1803/restaurant-list/blob/main/public/images/homepage.png)
+![image](https://github.com/syeh1803/restaurant-list/blob/main/public/images/updated-homepage.png)
 ![image](https://github.com/syeh1803/restaurant-list/blob/main/public/images/detailed-info.png)
 ![image](https://github.com/syeh1803/restaurant-list/blob/main/public/images/search-function.png)
+![image](https://github.com/syeh1803/restaurant-list/blob/main/public/images/create-page-1.png)
+![image](https://github.com/syeh1803/restaurant-list/blob/main/public/images/edit-page-1.png)
 
 ## Tools
 ► [Visual Studio Code](https://code.visualstudio.com/download) - Code Editor
