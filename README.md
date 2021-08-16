@@ -6,7 +6,6 @@
 
 ► Search for names or categories in the search bar
 
-<<<<<<< HEAD
 ► Click the images to read more information of the restaurants, eg: category, address, phone number, description 
 
 ► The icon in the top left corner will navigate users back to the homepage
