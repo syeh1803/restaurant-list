@@ -144,19 +144,41 @@ app.get("/search", (req, res) => {
     });
 });
 
-app.get("/search", (req, res) => {
-  const keyword = req.query.keyword.trim().toLowerCase();
-  const keywordRegex = new RegExp(keyword, "i");
-  Restaurant.find({
-    $or: [
-      { category: { $regex: keywordRegex } },
-      { name: { $regex: keywordRegex } },
-    ],
-  })
+// sort function
+// A -> Z
+app.get("/", (req, res) => {
+  Restaurant.find()
     .lean()
-    .then((restaurants) => {
-      res.render("index", { restaurants, keyword });
-    });
+    .sort({ name_en: "asc" })
+    .then((restaurants) => res.render("index", { restaurants }))
+    .catch((error) => console.error(error));
+});
+
+// Z -> A
+app.get("/", (req, res) => {
+  Restaurant.find()
+    .lean()
+    .sort({ name_en: "desc" })
+    .then((restaurants) => res.render("index", { restaurants }))
+    .catch((error) => console.error(error));
+});
+
+// By Category
+app.get("/", (req, res) => {
+  Restaurant.find()
+    .lean()
+    .sort({ category: "asc" })
+    .then((restaurants) => res.render("index", { restaurants }))
+    .catch((error) => console.error(error));
+});
+
+// By Location
+app.get("/", (req, res) => {
+  Restaurant.find()
+    .lean()
+    .sort({ location: "asc" })
+    .then((restaurants) => res.render("index", { restaurants }))
+    .catch((error) => console.error(error));
 });
 
 // start and listen
