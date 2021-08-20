@@ -3,7 +3,7 @@
     <h2>編輯餐廳</h2><i class="fas fa-drumstick-bite fa-2x mb-4 p-1"></i>
   </div>
   <h6 class="text-danger text-center mb-3">* 必填欄位</h6>
-  <form action="/restaurants/{{restaurants._id}}/edit" method="POST">
+  <form action="/restaurants/{{restaurants._id}}?_method=PUT" method="POST">
     <div class="form-group row">
       <label for="name" class="col-sm-2 col-form-label">餐廳名稱</label>
       <div class="col-sm-9">

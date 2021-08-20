@@ -14,7 +14,21 @@
           </div>
         </div>
       </form>
+    </div>
+  </div>
+</div>
 
+<div class="col-sm-11 d-flex justify-content-end ml-5">
+  <div class="btn-group">
+    <button type="button" id="dropdown" class="btn btn-warning dropdown-toggle" data-toggle="dropdown"
+      aria-haspopup="true" aria-expanded="false">
+      Sort
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <a class="dropdown-item" href="/">A -> Z</a>
+      <a class="dropdown-item" href="/">Z -> A</a>
+      <a class="dropdown-item" href="/">By Category</a>
+      <a class="dropdown-item" href="/">By Location</a>
     </div>
   </div>
 </div>
@@ -40,9 +54,8 @@
                 {{this.rating}}
                 <i class="fas fa-star fa-xs"></i>
               </span>
-
-              <form action="./restaurants/{{this._id}}?_method=PUT" method="POST" style="display: inline"><button
-                  type="submit" class="btn btn-sm btn-info ml-5">Edit</button></form>
+              <a class="btn btn-sm btn-info" type="submit" id="home-button"
+                href="./restaurants/{{this._id}}/edit">Edit</a>
               <a class="btn btn-sm btn-secondary" type="submit" id="home-button"
                 href="./restaurants/{{this._id}}">Detail</a>
               <form action="./restaurants/{{this._id}}?_method=DELETE" method="POST" style="display: inline;"><button
