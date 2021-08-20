@@ -146,39 +146,39 @@ app.get("/search", (req, res) => {
 
 // sort function
 // A -> Z
-app.get("/", (req, res) => {
+app.get("/sort/asc", (req, res) => {
   Restaurant.find()
     .lean()
     .sort({ name_en: "asc" })
     .then((restaurants) => res.render("index", { restaurants }))
-    .catch((error) => console.error(error));
+    .catch((error) => console.log(error));
 });
 
 // Z -> A
-app.get("/", (req, res) => {
+app.get("/sort/desc", (req, res) => {
   Restaurant.find()
     .lean()
     .sort({ name_en: "desc" })
     .then((restaurants) => res.render("index", { restaurants }))
-    .catch((error) => console.error(error));
+    .catch((error) => console.log(error));
 });
 
 // By Category
-app.get("/", (req, res) => {
+app.get("/sort/category", (req, res) => {
   Restaurant.find()
     .lean()
     .sort({ category: "asc" })
     .then((restaurants) => res.render("index", { restaurants }))
-    .catch((error) => console.error(error));
+    .catch((error) => console.log(error));
 });
 
 // By Location
-app.get("/", (req, res) => {
+app.get("/sort/location", (req, res) => {
   Restaurant.find()
     .lean()
     .sort({ location: "asc" })
     .then((restaurants) => res.render("index", { restaurants }))
-    .catch((error) => console.error(error));
+    .catch((error) => console.log(error));
 });
 
 // start and listen
