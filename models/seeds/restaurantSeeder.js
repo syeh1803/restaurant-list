@@ -1,13 +1,6 @@
-const mongoose = require("mongoose");
 const Restaurant = require("../restaurant"); // 載入restaurant model
-mongoose.connect("mongodb://localhost/restaurant", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
-const db = mongoose.connection;
-db.on("error", () => {
-  console.log("mongodb error!");
-});
+const db = require('../../config/mongoose')
+
 db.once("open", () => {
   console.log("mongodb connected!");
   Restaurant.create(
@@ -115,5 +108,4 @@ db.once("open", () => {
         "我們希望帶給您的，不只是啤酒，有美食，還有一份對生活的熱情。 義大利語「Bravo」的原意─「喝采」、「讚揚」， 我想著如果有一個大家都能輕鬆品嚐美酒、享受美食的地方，那就真的是太棒了！ 因為這個念頭，加上一股對比利時啤酒的熱情， 於是「Bravo Beer布娜飛比利時啤酒餐廳」在2006年誕生了...",
     }
   );
-  console.log("done!");
 });
