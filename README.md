@@ -48,9 +48,9 @@ npm run dev
 
 
 ## Sneak Peek 
-![image](https://github.com/syeh1803/restaurant-list/blob/main/public/images/updated-homepage.png)
+![image](https://github.com/syeh1803/restaurant-list/blob/main/public/images/homepage-sort.png)
 ![image](https://github.com/syeh1803/restaurant-list/blob/main/public/images/detailed-info.png)
-![image](https://github.com/syeh1803/restaurant-list/blob/main/public/images/search-function.png)
+![image](https://github.com/syeh1803/restaurant-list/blob/main/public/images/search-sort.png)
 ![image](https://github.com/syeh1803/restaurant-list/blob/main/public/images/create-page-1.png)
 ![image](https://github.com/syeh1803/restaurant-list/blob/main/public/images/edit-page-1.png)
 
