@@ -18,7 +18,9 @@
 
 ► Press ```Edit``` button for editing restaurants' information
 
-► Click ```Delete``` button to remoeve restuarants from the list
+► Click ```Delete``` button to remove restuarants from the list
+
+► Press ```Sort``` button to sort in ascending/descending order or by category/location
 
 ## Getting Started
 
